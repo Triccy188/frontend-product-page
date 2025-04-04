@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="gallery.css" />
+    <link rel="stylesheet" href="style2.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | E-commerce product page</title>
+  </head>
+  <body>
+    <nav id="hamburger-nav">
+      <div class="logo">
+        <div class="hamburger-menu">
+          <div class="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <ul class="menu-links">
+            <li>
+              <a href="#Collections" onclick="toggleMenu()">Collections</a>
+            </li>
+            <li><a href="#Men" onclick="toggleMenu()">Men</a></li>
+            <li><a href="#Women" onclick="toggleMenu()">Women</a></li>
+            <li><a href="#About" onclick="toggleMenu()">About</a></li>
+            <li><a href="#Contact" onclick="toggleMenu()">Contact</a></li>
+          </ul>
+        </div>
+        Sneakers
+
+        <ul class="nav-links">
+          <li><a href="#Collections">Collections</a></li>
+          <li><a href="#Men">Men</a></li>
+          <li><a href="#Women">Women</a></li>
+          <li><a href="#About">About</a></li>
+          <li><a href="#Contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="picture-cart">
+        <div class="cart-icon">
+          <p class="quantity">0</p>
+          <img src="images/icon-cart.svg" alt="Cart" />
+        </div>
+        <div class="profile-pic">
+          <img
+            class="nav-image"
+            src="images/image-avatar.png"
+            alt="picture of a guy"
+          />
+        </div>
+      </div>
+    </nav>
+    <!-- <hr /> -->
+
+    <div class="wrapper">
+      <div class="product-gallery">
+        <div class="main-image-container" id="main-image-container">
+          <img
+            src="images/image-product-1.jpg"
+            alt="Product"
+            class="main-image"
+            id="main-image"
+          />
+        </div>
+        <div class="thumbnails" id="main-thumbnails">
+          <img
+            src="images/image-product-1-thumbnail.jpg"
+            alt="Thumbnail 1"
+            class="thumbnail_pic active"
+            onclick="changeImage('images/image-product-1.jpg', this, true, false)"
+            data-index="0"
+          />
+          <img
+            src="images/image-product-2-thumbnail.jpg"
+            alt="Thumbnail 2"
+            class="thumbnail_pic"
+            onclick="changeImage('images/image-product-2.jpg', this, true, false)"
+            data-index="1"
+          />
+          <img
+            src="images/image-product-3-thumbnail.jpg"
+            alt="Thumbnail 3"
+            class="thumbnail_pic"
+            onclick="changeImage('images/image-product-3.jpg', this, true, false)"
+            data-index="2"
+          />
+          <img
+            src="images/image-product-4-thumbnail.jpg"
+            alt="Thumbnail 4"
+            class="thumbnail_pic"
+            onclick="changeImage('images/image-product-4.jpg', this, true, false)"
+            data-index="3"
+          />
+        </div>
+      </div>
+      <div class="product-details">
+        <p class="company-name">Sneaker Company</p>
+        <h1 class="edition">Fall Limited Edition Sneakers</h1>
+        <p class="info">
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+        <div class="general-price">
+          <div>
+            <p class="new-price">$125.00 <span class="discount">50%</span></p>
+          </div>
+          <div>
+            <p class="old-price">$250.00</p>
+          </div>
+        </div>
+        <div class="general-button">
+          <div class="quantity-selector">
+            <button class="minus-button">
+              <img src="images/icon-minus.svg" alt="minus" />
+            </button>
+            <span class="quantity-display">0</span>
+            <button class="plus-button">
+              <img src="images/icon-plus.svg" alt="plus" />
+            </button>
+          </div>
+          <button class="cart-button">
+            <img src="images/icon-cart.svg" alt="cart" />Add to cart
+          </button>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="lightbox" id="lightbox">
+      <span class="close" id="close-lightbox">
+        <img src="images/icon-close.svg" alt="close" />
+      </span>
+      <div class="lightbox-container">
+        <img
+          src="images/image-product-1.jpg"
+          class="lightbox-img"
+          id="lightbox-img"
+        />
+
+        <div class="thumbnails" id="lightbox-thumbnails">
+          <img
+            src="images/image-product-1-thumbnail.jpg"
+            alt="Thumbnail 1"
+            class="thumbnail_pic active"
+            onclick="changeImage('images/image-product-1.jpg', this, false, true)"
+            data-index="0"
+          />
+          <img
+            src="images/image-product-2-thumbnail.jpg"
+            alt="Thumbnail 2"
+            class="thumbnail_pic"
+            onclick="changeImage('images/image-product-2.jpg', this, false, true)"
+            data-index="1"
+          />
+          <img
+            src="images/image-product-3-thumbnail.jpg"
+            alt="Thumbnail 3"
+            class="thumbnail_pic"
+            onclick="changeImage('images/image-product-3.jpg', this, false, true)"
+            data-index="2"
+          />
+          <img
+            src="images/image-product-4-thumbnail.jpg"
+            alt="Thumbnail 4"
+            class="thumbnail_pic"
+            onclick="changeImage('images/image-product-4.jpg', this, false, true)"
+            data-index="3"
+          />
+        </div>
+
+        <!-- Navigation buttons -->
+        <div class="prev" id="prev-btn">
+          <img src="images/icon-previous.svg" alt="previous" />
+        </div>
+        <div class="next" id="next-btn">
+          <img src="images/icon-next.svg" alt="next" />
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
