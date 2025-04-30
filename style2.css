@@ -81,21 +81,18 @@ nav {
 .profile-pic {
   width: 30px;
   cursor: pointer;
-  /* position: absolute;
- */
 }
 .quantity {
   position: relative;
   background-color: #ff7d1a;
   color: #f7f7f7;
   bottom: -9px;
-  right: -15px;
+  right: -8px;
   width: 20px;
   text-align: center;
   font-size: 12px;
   border-radius: 90%;
-
-  display: none;
+  display: block;
 }
 
 .hamburger-menu {
@@ -115,7 +112,7 @@ nav {
   align-items: center;
   justify-content: center;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 120px;
 }
 .product-gallery {
   max-width: 450px;
@@ -160,7 +157,6 @@ nav {
   opacity: 0.6;
 }
 
-
 /* ------------------------------------------------------------------------------------------------   */
 /* ------------------------------------------- PRODUCT  -------------------------------------------   */
 /* ------------------------------------------------------------------------------------------------   */
@@ -173,7 +169,7 @@ nav {
   gap: 15px;
   align-content: flex-start;
   /* height: 85vh; */
-  margin: 0 0 auto;
+  /* margin: 0 0 auto; */
 }
 
 .company-name {
@@ -269,7 +265,7 @@ button:hover {
   border-radius: 5px;
   padding: 20px 15px;
   font-size: 10px;
-  font-weight: 600; 
+  font-weight: 600;
   cursor: pointer;
   border: none;
   transition: opacity 0.3s ease-in-out;
@@ -319,8 +315,8 @@ button:hover {
 
 .close {
   position: absolute;
-  top: -40px;
-  right: 0;
+  top: 55px;
+  right: 650px;
   cursor: pointer;
   z-index: 1010;
 }
@@ -330,7 +326,6 @@ button:hover {
   height: 20px;
   filter: brightness(0) invert(1);
 }
-
 .close:hover img {
   filter: brightness(0) saturate(100%) invert(59%) sepia(83%) saturate(1095%)
     hue-rotate(346deg) brightness(103%) contrast(101%);
@@ -339,7 +334,7 @@ button:hover {
 .prev,
 .next {
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
@@ -358,6 +353,9 @@ button:hover {
 
 .next {
   right: -20px;
+}
+.arrow-container {
+  display: none;
 }
 
 .prev:hover,
@@ -379,13 +377,9 @@ button:hover {
   opacity: 0.6;
 }
 
-
-
 /* ------------------------------------------------------------------------------------------------   */
 /* ------------------------------------------- RESPONSIVENESS  768 -------------------------------------------   */
 /* ------------------------------------------------------------------------------------------------   */
-
-
 
 @media screen and (max-width: 768px) {
   body {
@@ -407,6 +401,7 @@ button:hover {
     font-size: 24px;
   }
   .main-image {
+    width: 95%;
     max-width: 100%;
     height: auto;
     border-radius: 5px;
@@ -436,7 +431,7 @@ button:hover {
     gap: 5px;
     transition: 0.3s;
   }
-  
+
   .menu-links {
     overflow: hidden;
     position: absolute;
@@ -453,11 +448,11 @@ button:hover {
     -o-transition: max-height 0.3s ease-in-out;
 
     display: none;
-    max-height: 0;
   }
 
   .menu-links.show {
     display: block;
+    height: 200px;
     max-height: 300px;
   }
 
@@ -472,40 +467,38 @@ button:hover {
     font-size: 16px;
     font-weight: 600;
   }
-    .wrapper {
+  .wrapper {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 60px;
     align-items: center;
     margin-top: 0;
     margin-bottom: 30px;
-    /* overflow: hidden; */
   }
   .product-gallery {
-    width: 100%;
     max-width: 100%;
   }
   .main-image {
-    width: 200px;
     width: 100%;
-    height: 250px;
+    height: 400px;
   }
   .thumbnail_pic {
-  width: 88px;
-  height: 88px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: opacity 0.3s;
-  object-fit: cover;
-}
-.thumbnails {
-  padding: 0rem 1rem;
-}
-.product-details {
-  max-width: fit-content;
-  padding: 0 1rem;
-}
-.general-button {
+    width: 88px;
+    height: 88px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    object-fit: cover;
+  }
+  .thumbnails {
+    padding: 0rem 1rem;
+    display: none;
+  }
+  .product-details {
+    max-width: fit-content;
+    padding: 0 1rem;
+  }
+  .general-button {
     flex-direction: column;
     padding: 0rem;
   }
@@ -517,6 +510,30 @@ button:hover {
     max-width: 100%;
     padding: 20px 15px;
     height: max-content;
+  }
+
+  .arrow-container {
+    display: block;
+  }
+
+  .next-next-btn,
+  .prev-prev-btn {
+    position: absolute;
+    top: 29%;
+    padding: 9px;
+    width: 30px;
+    height: 28px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .prev-prev-btn {
+    left: 11px;
+  }
+
+  .next-next-btn {
+    right: 11px;
   }
 }
 /* ------------------------------------------------------------------------------------------------   */
@@ -546,15 +563,11 @@ button:hover {
   }
 
   .nav-links {
-    display: none; 
+    display: none;
   }
 
   .hamburger-menu {
-    display: flex; 
-  }
-
-  .menu-links {
-
+    display: flex;
   }
 
   .wrapper {
@@ -572,7 +585,7 @@ button:hover {
     margin-bottom: 10px;
   }
   .main-image {
-            width: 100%;
+    width: 100%;
     border-radius: 0;
     cursor: pointer;
     -webkit-border-radius: 0;
@@ -584,7 +597,6 @@ button:hover {
   .thumbnail_pic {
     width: 20%;
     height: auto;
-    
   }
 
   .product-details {
@@ -599,4 +611,3 @@ button:hover {
     width: 100%;
   }
 }
-

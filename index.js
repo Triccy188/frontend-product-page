@@ -5,14 +5,17 @@ const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 const closeBtn = document.querySelector(".close");
 const toggleMenu = document.querySelector(".hamburger-icon");
+const prevButtonMobile = document.querySelector(".prev-prev-btn");
+const nextButtonMobile = document.querySelector(".next-next-btn");
+const mobileImage = document.getElementById("main-image");
 
-    const mainImage = document.getElementById("main-image");
-    // const lightbox = document.getElementById("lightbox");
-    // const lightboxImg = document.getElementById("lightbox-img");
-    const closeLightbox = document.getElementById("close-lightbox");
-    // const prevBtn = document.getElementById("prev-btn");
-    // const nextBtn = document.getElementById("next-btn");
-    const mainImageContainer = document.getElementById("main-image-container");
+const mainImage = document.getElementById("main-image");
+// const lightbox = document.getElementById("lightbox");
+// const lightboxImg = document.getElementById("lightbox-img");
+const closeLightbox = document.getElementById("close-lightbox");
+// const prevBtn = document.getElementById("prev-btn");
+// const nextBtn = document.getElementById("next-btn");
+const mainImageContainer = document.getElementById("main-image-container");
 
 const imagePaths = [
   "images/image-product-1.jpg",
@@ -91,6 +94,12 @@ prevBtn.addEventListener("click", () => {
   lightboxThumbnails.forEach((thumb) => thumb.classList.remove("active"));
   lightboxThumbnails[currentImageIndex].classList.add("active");
 });
+//for mobile //
+prevButtonMobile.addEventListener("click", () => {
+  currentImageIndex =
+    (currentImageIndex - 1 + imagePaths.length) % imagePaths.length;
+  mobileImage.src = imagePaths[currentImageIndex];
+});
 
 // Next button
 nextBtn.addEventListener("click", () => {
@@ -104,6 +113,11 @@ nextBtn.addEventListener("click", () => {
   lightboxThumbnails.forEach((thumb) => thumb.classList.remove("active"));
   lightboxThumbnails[currentImageIndex].classList.add("active");
 });
+
+  nextButtonMobile.addEventListener("click", () => {
+    currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
+    mobileImage.src = imagePaths[currentImageIndex];
+  });
 
 // Close lightbox
 closeLightbox.addEventListener("click", () => {
@@ -131,66 +145,6 @@ function openLightbox(src) {
   lightbox.style.display = "flex";
   lightboxImg.src = src;
 }
-
-// Function to close the lightbox
-// function closeLightbox() {
-//   lightbox.style.display = "none";
-// }
-
-// // Function to show next image
-// function nextImage() {
-//   console.log(currentIndex);
-//   console.log(imageSources.length);
-//   currentIndex = (currentIndex + 1) % imageSources.length;
-//   lightboxImg.src = imageSources[currentIndex];
-//   console.log(currentIndex);
-// }
-
-// // Function to show previous image
-// function prevImage() {
-//   currentIndex = (currentIndex - 1 + imageSources.length) % imageSources.length;
-
-//   lightboxImg.src = imageSources[currentIndex];
-// }
-
-// function nextImage() {
-//   const currentSrc = lightboxImg.src; // Get the current image source
-//   console.log(currentSrc);
-//   console.log(currentSrc === imageSources[0]);
-//   const currentIndex = imageSources.findIndex((src) => {
-//     currentSrc.includes(src);
-//   }); // Find the current index
-//   console.log(currentIndex);
-//   const nextIndex = (currentIndex + 1) % imageSources.length; // Calculate the next index
-//   lightboxImg.src = imageSources[nextIndex]; // Set the next image source
-// }
-
-// // Function to show the previous image
-// function prevImage() {
-//   const currentSrc = lightboxImg.src; // Get the current image source
-//   // console.log(thumbnails)
-//   const currentIndex = imageSources.findIndex((src) =>
-//     currentSrc.includes(src)
-//   ); // Find the current index
-//   const prevIndex =
-//     (currentIndex - 1 + imageSources.length) % imageSources.length; // Calculate the previous index
-//   lightboxImg.src = imageSources[prevIndex]; // Set the previous image source
-// }
-
-// // Event Listeners
-// thumbnails.forEach((thumbnail, index) => {
-//   thumbnail.addEventListener("click", () => openLightbox(index));
-// });
-
-closeBtn.addEventListener("click", closeLightbox);
-// nextBtn.addEventListener("click", nextImage);
-// prevBtn.addEventListener("click", prevImage);
-
-// Close lightbox if user clicks outside the image
-lightbox.addEventListener("click", (e) => {
-  if (e.target === lightbox) closeLightbox();
-});
-
 // Quantity Selector
 const minusBtn = document.querySelector(".minus-button");
 const plusBtn = document.querySelector(".plus-button");
@@ -214,6 +168,6 @@ const cartButton = document.querySelector(".cart-button");
 cartButton.addEventListener("click", () => {
   // alert(`Added ${quantity} item(s) to cart!`);
   document.querySelector(".cart-icon .quantity").textContent = quantity;
-  // quantity = 0;
+  //  quantity = 0;
   quantityDisplay.textContent = quantity;
 });
