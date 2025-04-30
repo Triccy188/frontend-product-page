@@ -23,6 +23,11 @@ CSS3
 Vanilla JavaScript
 
 Responsive Design (desktop First)
+.
+
+🔗 Live Demo
+https://triccy188.github.io/frontend-product-page/
+
 
 📂 Project Structure
 bash
